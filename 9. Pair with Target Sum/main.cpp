@@ -1,10 +1,14 @@
 #include<iostream>
 #include<vector>
 
+// ALternative technique
+// #include<unordered_map>
+
 class Problem { 
 public:
     std::vector<int> solve(std::vector<int>& input, int targetSum) {
         
+        // Two pointer technique
         int left = 0;
         int right = input.size() -1;
 
@@ -19,7 +23,25 @@ public:
                 return std::vector<int> {left, right};
         }
 
-            return std::vector<int> {-1, -1};
+        return std::vector<int> {-1, -1};
+
+
+        // // Alternative technique
+        // std::unordered_map<int, int> store;
+
+        // for (int i=0; i!=input.size(); i++) {
+
+        //     int complement = targetSum - input[i];
+
+        //     if (store.find(complement) != store.end()){
+        //         return std::vector<int> {i, store[complement]};
+        //     } else {
+        //         store.insert({input[i], i});
+        //     }        
+
+        // }
+
+        // return std::vector<int> {-1,-1};
     }
     
 };
